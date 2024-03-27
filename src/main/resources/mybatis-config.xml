@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config.properties"> <!--ссылка на файл со свойствами(ссылка на СУБД, логин, пароль и тп.)-->
+    </properties>
+
+    <environments default="development"><!--в данном блоке настраиваются подключения к БД-->
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers><!--в данном блоке необходимо описать маперы, которые используются в проекте-->
+        <mapper class="mapper.SubscriberMapper"/>
+        <mapper class="mapper.TariffMapper"/>
+        <mapper class="mapper.PaymentMapper"/>
+    </mappers>
+
+</configuration>

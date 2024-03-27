@@ -1,0 +1,17 @@
+<source lang="xml">
+    <resultMap id="subscriber" type="dal.Subscriber">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="tariff" column="ref_tariff"
+                     javaType="dal.Tariff"
+                     select="mapper.TariffMapper.getTariffById"	fetchType="eager"/>
+        <collection
+                property="payments"
+        column="id"
+        javaType="List"
+        ofType="Payment"
+        select="mapper.PaymentMapper.getPaymentsByIdSub"
+        fetchType="eager"
+        />
+    </resultMap>
+</source>
