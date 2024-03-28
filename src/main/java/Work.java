@@ -4,7 +4,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import java.io.Console;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;

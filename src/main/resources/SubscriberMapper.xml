@@ -9,7 +9,7 @@
         select * from subscriber where id = #{id}
     </select>
 
-    <select id="getSubscribers" resultMap="tariff">
+    <select id="getSubscriber" resultMap="subscriber">
         select * from subscriber
     </select>
 </mapper>
