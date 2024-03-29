@@ -26,7 +26,7 @@ public class SubscriberMapperTest extends TestCase {
 
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             subscriberMapper = sqlSessionFactory.openSession().getMapper(SubscriberMapper.class);
-            var s = new Subscriber().setName("firstName").setId(3L);
+            var s = new Subscriber().setName("firstName").setId(1L);
             var tarif=new Tariff();
             tarif.setId(1L);
 
