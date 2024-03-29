@@ -5,11 +5,23 @@
         <result property="name" column="name"/>
     </resultMap>
     <select id="getSubscriberById" parameterType="java.lang.Integer"
-            resultMap="subscriber">  <!-- ссылка на ResultMap по которому и будет происходить мапинг-->
+            resultMap="subscriber">
         select * from subscriber where id = #{id}
     </select>
 
-    <select id="getSubscriber" resultMap="subscriber">
+    <select id="getSubscribers" resultMap="subscriber">
         select * from subscriber
     </select>
+
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO subscriber (id, name,ref_tariff)
+        VALUE(#{id}, #{name}, #{tariff.id});
+     </insert>
+
+
+
+    <delete id = "delete" parameterType = "int">
+        DELETE from subscriber WHERE id = #{id};
+    </delete>
+
 </mapper>

@@ -1,28 +1,43 @@
+package mapper;
+
 import dal.Subscriber;
-import mapper.SubscriberMapper;
+import dal.Tariff;
+import junit.framework.TestCase;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.List;
 
-public class Work {
-    public static void main(String[] args) {
+public class SubscriberMapperTest extends TestCase {
+
+    SubscriberMapper subscriberMapper;
+
+    @Test
+    public void SubscriberTest() {
         SqlSessionFactory sqlSessionFactory;
         SubscriberMapper subscriberMapper;
         Reader reader = null;
         try {
             reader = Resources
                     .getResourceAsReader("mybatis-config.xml");
-            
+
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             subscriberMapper = sqlSessionFactory.openSession().getMapper(SubscriberMapper.class);
-            List<Subscriber> subscribers = subscriberMapper.getSubscribers();
-            Subscriber subscriber = subscriberMapper.getSubscriberById(101);
+            var s = new Subscriber().setName("firstName").setId(3L);
+            var tarif=new Tariff();
+            tarif.setId(1L);
+
+            s.setTariff(tarif);
+            subscriberMapper.insert(s);
+            subscriberMapper.delete(1);
+
+
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
+
 }
