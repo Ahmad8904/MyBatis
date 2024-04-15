@@ -1,8 +1,8 @@
 package dal;
 
 
- import java.sql.Connection;
- import java.util.List;
+import java.sql.Connection;
+import java.util.List;
 
 public class Subscriber {
     private Long id;
