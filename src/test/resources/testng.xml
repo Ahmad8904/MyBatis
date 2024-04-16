@@ -6,14 +6,16 @@
 
 <!--        <parameter name="dbconfig" value="db.properties" />-->
 <!--        <parameter name="poolsize" value="10" />-->
-<!--        <packages>-->
-<!--            <package name="mapper.*"/>-->
-<!--        </packages>-->
-        <classes>
-            <class name="mapper.Config" />
+        <packages>
+            <package name="mapper.*"/>
+        </packages>
+<!--        <classes>-->
+<!--&lt;!&ndash;            <class name="mapper.Config" />&ndash;&gt;-->
 
-            <class name="mapper.SubscriberMapperTest" />
-        </classes>
+<!--            <class name="mapper.SubscriberMapperTest" />-->
+<!--            <class name="mapper.PaymentMapperTest" />-->
+
+<!--        </classes>-->
 
     </test>
 
