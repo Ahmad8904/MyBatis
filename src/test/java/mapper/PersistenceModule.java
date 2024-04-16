@@ -6,7 +6,7 @@ public class PersistenceModule extends MyBatisModule {
     @Override
     protected void initialize() {
         addMapperClass(SubscriberMapper.class);
-        addMapperClass(SubscriberMapper.class);
+        addMapperClass(PaymentMapper.class);
 
     }
 }
