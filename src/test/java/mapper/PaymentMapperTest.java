@@ -4,12 +4,12 @@ import dal.Payment;
 import dal.Tariff;
 import org.testng.annotations.Test;
 
-public class PaymentMapperTest extends Config{
+public class PaymentMapperTest {
 
 PaymentMapper paymentMapper;
     @Test
     public void paymentTest() {
-        paymentMapper = session.getMapper(PaymentMapper.class);
+//        paymentMapper = session.getMapper(PaymentMapper.class);
 
         var payment = new Payment();
 

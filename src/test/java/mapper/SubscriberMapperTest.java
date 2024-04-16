@@ -4,9 +4,10 @@ import com.google.inject.Inject;
 import dal.Subscriber;
 import dal.Tariff;
  import org.testng.annotations.AfterTest;
+import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
 
-
+@Guice
 public class SubscriberMapperTest  {
 
    @Inject

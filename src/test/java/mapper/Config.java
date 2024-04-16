@@ -20,16 +20,16 @@ import static com.wix.mysql.config.MysqldConfig.aMysqldConfig;
 
 public class Config extends AbstractModule {
 
-    public static final Version MYSQL_VERSION = Version.v8_latest;
+    public static final Version MYSQL_VERSION = Version.v5_7_latest;
 
     public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String JDBC_USERNAME = "root";
-    public static final String JDBC_PASSWORD = "";
+    public static final String JDBC_USERNAME = "test";
+    public static final String JDBC_PASSWORD = "test";
     public static final String JDBC_DATABASE = "test";
     SqlSessionFactory sqlSessionFactory;
     SqlSession session;
     Reader reader = null;
-    @Inject
+
     SubscriberMapper subscriberMapper;
 
 
