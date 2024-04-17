@@ -18,9 +18,9 @@
         </environment>
     </environments>
     <mappers><!--в данном блоке необходимо описать маперы, которые используются в проекте-->
-        <mapper resource="SubscriberMapper.xml"/>
-        <mapper resource="TariffMapper.xml"/>
-        <mapper resource="PaymentMapper.xml"/>
+        <mapper class="mapper.SubscriberMapper"/>
+        <mapper class="mapper.TariffMapper"/>
+        <mapper class="mapper.PaymentMapper"/>
     </mappers>
 
 </configuration>
