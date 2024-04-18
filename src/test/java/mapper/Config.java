@@ -1,11 +1,14 @@
 package mapper;
 
+import static com.wix.mysql.config.MysqldConfig.aMysqldConfig;
+import static com.wix.mysql.ScriptResolver.classPathScript;
 import com.google.inject.AbstractModule;
-import com.google.inject.Inject;
+import com.google.inject.name.Names;
 import com.wix.mysql.EmbeddedMysql;
 import com.wix.mysql.config.Charset;
 import com.wix.mysql.config.MysqldConfig;
 import com.wix.mysql.distribution.Version;
+import module.PersistenceModule;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,9 +16,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
-
-import static com.wix.mysql.ScriptResolver.classPathScript;
-import static com.wix.mysql.config.MysqldConfig.aMysqldConfig;
 
 
 public class Config extends AbstractModule {
@@ -26,31 +26,25 @@ public class Config extends AbstractModule {
     public static final String JDBC_USERNAME = "test";
     public static final String JDBC_PASSWORD = "test";
     public static final String JDBC_DATABASE = "test";
-    SqlSessionFactory sqlSessionFactory;
-    SqlSession session;
-    Reader reader = null;
-
-    SubscriberMapper subscriberMapper;
-
 
     @Override
     protected void configure() {
         EmbeddedMysql mysql = newMysqlServer();
         bind(EmbeddedMysql.class).toInstance(mysql);
 
+        /*
+            Connection pool parameters
+         */
+        bindConstant().annotatedWith(Names.named("jdbc.url")).to(
+                String.format("jdbc:mysql://localhost:%d/test?autoReconnect=true",mysql.getConfig().getPort())
+        );
+
+        bindConstant().annotatedWith(Names.named("jdbc.driver")).to(JDBC_DRIVER);
+        bindConstant().annotatedWith(Names.named("jdbc.username")).to(JDBC_USERNAME);
+        bindConstant().annotatedWith(Names.named("jdbc.password")).to(JDBC_PASSWORD);
+
         install(new PersistenceModule());
 
-        try {
-
-            reader = Resources
-                    .getResourceAsReader("mybatis-config.xml");
-
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-            subscriberMapper = sqlSessionFactory.openSession().getMapper(SubscriberMapper.class);
-        } catch (
-                IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public EmbeddedMysql newMysqlServer() {

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context aliases="${context.aliases}">
+    <Parameter name="jdbc.driver" value="com.mysql.jdbc.Driver" override="false"/>
+    <Parameter name="jdbc.url" value="${jdbc.url}" override="false"/>
+    <Parameter name="jdbc.username" value="${jdbc.username}" override="false"/>
+    <Parameter name="jdbc.password" value="${jdbc.password}" override="false"/>
+
+</Context>
