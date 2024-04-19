@@ -1,0 +1,10 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.TariffMapper">
+    <resultMap id="tariff" type="dal.Tariff">
+        <id property="id" column="id"/>
+        <result property="descr" column="descr"/>
+    </resultMap>
+    <select id="getTariffById" resultMap="tariff" parameterType="java.lang.Integer">
+        select * from tariff where id = #{id}
+    </select>
+</mapper>

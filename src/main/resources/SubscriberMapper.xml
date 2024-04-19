@@ -16,7 +16,7 @@
     <insert id="insert" keyProperty="id"  >
         INSERT INTO subscriber (id, name,ref_tariff)
         VALUE(#{id}, #{name}, #{tariff.id});
-    </insert>
+     </insert>
 
 
 

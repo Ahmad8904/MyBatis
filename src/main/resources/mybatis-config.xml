@@ -18,9 +18,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="mapper.SubscriberMapper"/>
-        <mapper class="mapper.TariffMapper"/>
-        <mapper class="mapper.PaymentMapper"/>
+        <mapper resource="SubscriberMapper.xml"/>
+        <mapper resource="TariffMapper.xml"/>
+        <mapper resource="PaymentMapper.xml"/>
     </mappers>
 
 </configuration>

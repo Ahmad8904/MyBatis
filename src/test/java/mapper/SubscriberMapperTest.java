@@ -1,6 +1,5 @@
 package mapper;
 
-
 import dal.Subscriber;
 import dal.Tariff;
 import org.testng.annotations.AfterTest;

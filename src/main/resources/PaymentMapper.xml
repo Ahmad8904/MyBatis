@@ -1,0 +1,11 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.PaymentMapper">
+    <resultMap id="payment" type="dal.Payment">
+        <id property="id" column="id"/>
+        <result property="summa" column="date"/>
+    </resultMap>
+    <select id="getPaymentsByIdSub" resultMap="payment" parameterType="java.lang.Integer">
+        select * from payment where ref_subscriber = #{id}
+    </select>
+
+</mapper>
