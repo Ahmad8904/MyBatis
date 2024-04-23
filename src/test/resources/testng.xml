@@ -1,6 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
-<!--<suite name="test-parameter" parent-module="mapper.Config" guice-stage="PRODUCTION">-->
-    <suite parent-module="mapper.Config" name="example1" verbose="1">
+     <suite parent-module="mapper.Config" name="example1" verbose="1">
 
     <test name="example1">
 
