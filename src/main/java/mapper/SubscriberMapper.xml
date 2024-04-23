@@ -13,14 +13,12 @@
         select * from subscriber
     </select>
 
-    <insert id="insert" keyProperty="id"  >
+    <insert id="insert" keyProperty="id">
         INSERT INTO subscriber (id, name,ref_tariff)
         VALUE(#{id}, #{name}, #{tariff.id});
     </insert>
 
-
-
-    <delete id = "delete" parameterType = "int">
+    <delete id="delete" parameterType="int">
         DELETE from subscriber WHERE id = #{id};
     </delete>
 
