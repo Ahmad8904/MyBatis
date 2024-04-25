@@ -7,13 +7,15 @@ public class Tariff {
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
+    public Tariff setId(Long id) {
         this.id = id;
+        return this;
     }
     public String getDescr() {
         return descr;
     }
-    public void setDescr(String descr) {
+    public Tariff setDescr(String descr) {
         this.descr = descr;
+        return this;
     }
 }

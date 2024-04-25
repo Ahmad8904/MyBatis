@@ -5,5 +5,9 @@ import dal.Payment;
 import java.util.List;
 
 public interface PaymentMapper {
-    List<Payment> getPaymentsByIdSub(Integer id);
+    Payment getPaymentsById(Integer id);
+
+    void insert(Payment payment);
+    void delete(int id);
+
 }

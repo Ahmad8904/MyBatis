@@ -11,7 +11,7 @@ CREATE TABLE `tariff` (
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
-CREATE TABLE `payments` (
+CREATE TABLE `payment` (
   `id` int NOT NULL,
   `ref_subscriber` int NOT NULL,
   `summa` int NOT NULL,

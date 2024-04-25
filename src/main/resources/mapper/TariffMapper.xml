@@ -7,4 +7,11 @@
     <select id="getTariffById" resultMap="tariff" parameterType="java.lang.Integer">
         select * from tariff where id = #{id}
     </select>
+    <insert id="insert" keyProperty="id">
+        INSERT INTO tariff (id, descr)
+        VALUE(#{id}, #{descr});
+    </insert>
+    <delete id="delete" parameterType="int">
+        DELETE from tariff WHERE id = #{id};
+    </delete>
 </mapper>

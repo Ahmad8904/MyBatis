@@ -1,11 +1,10 @@
 package module;
 
 import com.google.inject.name.Names;
-import dal.Subscriber;
-import dal.Tariff;
+
 import mapper.PaymentMapper;
 import mapper.SubscriberMapper;
-import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
+import mapper.TariffMapper;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.MyBatisModule;
 
@@ -23,6 +22,9 @@ public class PersistenceModule extends MyBatisModule {
         bindTransactionFactoryType(JdbcTransactionFactory.class);
 
         addMapperClass(SubscriberMapper.class);
+        addMapperClass(PaymentMapper.class);
+        addMapperClass(TariffMapper.class);
+
 
     }
 }
